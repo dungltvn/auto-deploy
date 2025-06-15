@@ -23,7 +23,7 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: 'ansible_deploy_key', keyFileVariable: 'ANSIBLE_SSH_KEY')]) {
                         sh """
                         chmod 600 \$ANSIBLE_SSH_KEY
-                        ${ANSIBLE_BIN} -i hosts test.yml --private-key \$ANSIBLE_SSH_KEY
+                        ${ANSIBLE_BIN} -i hosts test-1.yml --private-key \$ANSIBLE_SSH_KEY
                         """
                     }
                 }
