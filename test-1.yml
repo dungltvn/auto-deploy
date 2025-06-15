@@ -1,0 +1,15 @@
+---
+- name: Test Playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create a file on target server
+      ansible.builtin.file:
+        path: /tmp/jenkins_ansible_test.txt
+        state: touch
+        mode: '0644'
+    - name: Add content to the file
+      ansible.builtin.lineinfile:
+        path: /tmp/jenkins_ansible_test.txt
+        line: "This file was created by Jenkins and Ansible!"
+        insertafter: EOF
