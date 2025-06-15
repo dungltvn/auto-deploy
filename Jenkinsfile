@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Sử dụng SSH Agent Plugin để đưa SSH key vào môi trường
-                    withCredentials([sshUserPrivateKey(credentialsId: 'jenkins_ansible_ssh_key', keyFileVariable: 'ANSIBLE_SSH_KEY')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'ansible_deploy_key', keyFileVariable: 'ANSIBLE_SSH_KEY')]) {
                         sh """
                         chmod 600 \$ANSIBLE_SSH_KEY
                         ${ANSIBLE_BIN} -i hosts test.yml --private-key \$ANSIBLE_SSH_KEY
