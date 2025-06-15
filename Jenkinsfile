@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout code') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-ansible-repo.git'
+                git branch: 'main', url: 'https://github.com/dungltvn/auto-deploy.git'
                 // Hoặc đơn giản hơn: checkout scm (nếu bạn đã cấu hình SCM ở trên)
             }
         }
